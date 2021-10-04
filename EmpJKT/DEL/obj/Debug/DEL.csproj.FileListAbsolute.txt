@@ -1,0 +1,6 @@
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\bin\Debug\DEL.dll
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\bin\Debug\DEL.pdb
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\obj\Debug\DEL.csprojAssemblyReference.cache
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\obj\Debug\DEL.csproj.CoreCompileInputs.cache
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\obj\Debug\DEL.dll
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DEL\obj\Debug\DEL.pdb

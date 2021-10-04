@@ -1,0 +1,10 @@
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\bin\Debug\DAL.dll.config
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\bin\Debug\DAL.dll
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\bin\Debug\DAL.pdb
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\bin\Debug\DEL.dll
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\bin\Debug\DEL.pdb
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\obj\Debug\DAL.dll
+D:\Corporate\Vinsys\JK Tech\Batch-2\ADO.Net\Demos\EMPJKT-Demo\EmpJKT\DAL\obj\Debug\DAL.pdb
