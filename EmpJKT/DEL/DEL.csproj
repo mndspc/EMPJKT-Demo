@@ -45,6 +45,7 @@
     <Compile Include="EmpMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalarySheetInfo.cs" />
+    <Compile Include="SelectEmpSalaryInfo.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

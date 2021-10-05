@@ -61,13 +61,120 @@ namespace DAL
        
         public EmpMaster GetById(object obj)
         {
-            throw new NotImplementedException();
+            var empMaster = new EmpMaster();
+            try{
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = SP.GetEmpByCode.ToString();
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@EmpCode", SqlDbType.Int).Value = Convert.ToInt32(obj);
+
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                dataSet.Reset();
+                sqlDataAdapter.Fill(dataSet, "Emp");
+
+                if (dataSet.Tables["Emp"].Rows.Count > 0)
+                {
+                    DataRow dataRow = dataSet.Tables["Emp"].Rows[0];
+
+                    empMaster.EmpCode = Convert.ToInt32(dataRow[0]);
+                    empMaster.EmpName = Convert.ToString(dataRow[1]);
+                    empMaster.DateofBirth = DateTime.Parse(dataRow[2].ToString());
+                    empMaster.Email = Convert.ToString(dataRow[3]);
+                    empMaster.DeptCode = Convert.ToInt32(dataRow[4]);
+                    return empMaster;
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }catch(SqlException ex)
+            {
+                return empMaster;
+            }
         }
         public List<EmpMaster> GetAll()
         {
-            throw new NotImplementedException();
+            var empList = new  List<EmpMaster>();
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = SP.GetAll.ToString();
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                dataSet.Reset();
+                sqlDataAdapter.Fill(dataSet, "EmpAll");
+                if (dataSet.Tables["EmpAll"].Rows.Count > 0)
+                {
+                    foreach(DataRow datarow in dataSet.Tables["EmpAll"].Rows)
+                    {
+                        var empMaster = new EmpMaster();
+                        empMaster.EmpCode = Convert.ToInt32(datarow[0]);
+                        empMaster.EmpName = Convert.ToString(datarow[1]);
+                        empMaster.DateofBirth = DateTime.Parse(datarow[2].ToString());
+                        empMaster.Email = Convert.ToString(datarow[3]);
+                        empMaster.DeptCode = Convert.ToInt32(datarow[4]);
+                        empList.Add(empMaster);
+                    }
+                    return empList;
+                }
+                else
+                {
+                    return null;
+                }
+            }catch(SqlException ex)
+            {
+                return null;
+            }
         }
 
+        public List<SelectEmpSalaryInfo> EmpInfowithSalary()
+        {
+            //--CREATE A VIEW TO SELECT SALARYINFO AND EMP INFO
+            //CREATE VIEW SelectEmpSalaryInfo
+            //AS
+            //SELECT E.EmpCode,E.EmpName,E.Email,S.NetSalary FROM EmpMaster E
+            //INNER JOIN
+            //SalarySheetInfo S
+            //ON
+            //E.EmpCode = S.EmpCode
+
+            var empList = new List<SelectEmpSalaryInfo>();
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = "select * from SelectEmpSalaryInfo";
+                sqlCommand.CommandType = CommandType.Text;
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                dataSet.Reset();
+                sqlDataAdapter.Fill(dataSet, "EmpInfoWithSalary");
+                if (dataSet.Tables["EmpInfoWithSalary"].Rows.Count > 0)
+                {
+                    foreach (DataRow datarow in dataSet.Tables["EmpInfoWithSalary"].Rows)
+                    {
+                        var emp = new SelectEmpSalaryInfo();
+                        emp.EmpCode = Convert.ToInt32(datarow[0]);
+                        emp.EmpName= Convert.ToString(datarow[1]);
+                        emp.Email = datarow[2].ToString();
+                        
+                        emp.NetSalary = Convert.ToDouble(datarow[3]);
+                        empList.Add(emp);
+                    }
+                    return empList;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                return null;
+            }
+        }
       
     }
 }

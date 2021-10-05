@@ -10,4 +10,5 @@ namespace DAL
     {
         SaveEmployee, DeleteEmployee,UpdateEmployee, GetEmpByCode, ValiadateEmployee,GetAll,GetEmpCount
     }
+    
 }

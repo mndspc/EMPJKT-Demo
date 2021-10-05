@@ -43,6 +43,7 @@
       <HintPath>..\DEL\bin\Debug\DEL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetDemo1.cs" />
+    <Compile Include="DataSetDemo2.cs" />
     <Compile Include="EmpMasterDemo.cs" />
     <Compile Include="EmpMasterDemo1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

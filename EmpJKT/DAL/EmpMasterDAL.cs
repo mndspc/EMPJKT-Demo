@@ -156,6 +156,7 @@ namespace DAL
                         empMaster.Email = Convert.ToString(sqlDataReader["Email"]);
                         empMaster.DeptCode = Convert.ToInt32(sqlDataReader["DeptCode"]);
                         empList.Add(empMaster);
+                      
                     }
                    
                 }
@@ -174,7 +175,25 @@ namespace DAL
 
         public int GetCount()
         {
-            int count=0;
+            //     CREATE PROCEDURE[dbo].[GetEmpCount]
+           //     --Add the parameters for the stored procedure here
+       
+           //AS
+       
+
+           //BEGIN
+           //    -- SET NOCOUNT ON added to prevent extra result sets from
+           //    -- interfering with SELECT statements.
+       
+           //    SET NOCOUNT ON;
+
+           //     --Insert statements for procedure here
+       
+           //    select  COUNT(*) as 'EmpCount' from EmpMaster
+
+           //END
+       
+                   int count=0;
             try
             {
                 SqlCommand sqlCommand = new SqlCommand();
