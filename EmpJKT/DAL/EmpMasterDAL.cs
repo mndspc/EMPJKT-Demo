@@ -134,7 +134,23 @@ namespace DAL
         }
         public List<EmpMaster> GetAll()
         {
-            var empList = new List<EmpMaster>();
+               //     CREATE PROCEDURE[dbo].[GetAll]
+               //     --Add the parameters for the stored procedure here
+       
+
+               //AS
+               //BEGIN
+               //    -- SET NOCOUNT ON added to prevent extra result sets from
+               //    -- interfering with SELECT statements.
+       
+               //    SET NOCOUNT ON;
+
+               //     --Insert statements for procedure here
+       
+               //    SELECT * from Empmaster
+               //END
+       
+                   var empList = new List<EmpMaster>();
             try
             {
                 sqlCommand.Connection = sqlConnection;
