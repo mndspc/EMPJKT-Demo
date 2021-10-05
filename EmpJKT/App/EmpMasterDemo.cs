@@ -18,12 +18,13 @@ namespace App
             if (userInfoDAL.ValidateUser(userInfo))
             {
                 EmpMasterDAL empMasterDAL = new EmpMasterDAL();
-                Console.WriteLine("Enter 1.Save Employee 2. Delete Employee 3.Update Employee 4.Get by Id 5.Get All:");
+                Console.WriteLine($"Total Employee count is:{ empMasterDAL.GetCount()}");
+                Console.WriteLine("Enter 1.Save Employee 2. Delete Employee 3.Update Employee 4.Get by Id 5.Get All: 6.Transaction");
                 int response = int.Parse(Console.ReadLine());
                 switch (response)
                 {
                     case 1:
-                        EmpMaster empMaster = new EmpMaster { EmpCode = 23, EmpName = "Virat", DateofBirth = DateTime.Parse("05-05-1985"), Email = "virat@gmail.com", DeptCode = 100 };
+                        EmpMaster empMaster = new EmpMaster { EmpCode = 129, EmpName = "Sneha", DateofBirth = DateTime.Parse("03-04-1985"), Email = "sneha@gmail.com", DeptCode = 100 };
                         Console.WriteLine(empMasterDAL.Save(empMaster) ? "Employee Saved" : "Error");
                         Console.WriteLine($"Employee count is:{ empMasterDAL.GetCount()}");
                         break;
@@ -55,6 +56,9 @@ namespace App
                             Console.WriteLine($"Code={emp.EmpCode}\tName={emp.EmpName}\tDate of Birth={emp.DateofBirth.ToString("dd-MMM-yy")}\tEmail={emp.Email}\tDept Code={emp.DeptCode}");
 
                         }
+                        break;
+                    case 6:
+                        Console.WriteLine(empMasterDAL.ExecuteTransaction() ? "Committed" : "Rollbacked");
                         break;
                 }
             }

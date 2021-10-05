@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmpMasterDAL.cs" />
+    <Compile Include="EmpMasterDAL1.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -177,10 +177,11 @@ namespace DAL
             int count=0;
             try
             {
+                SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                // sqlCommand.CommandText = SP.GetEmpCount.ToString();
-                sqlCommand.CommandText = "select count(*) from EmpMaster";
-                sqlCommand.CommandType = CommandType.Text;
+                 sqlCommand.CommandText = SP.GetEmpCount.ToString();             
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+              
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
                     sqlConnection.Open();
@@ -197,5 +198,47 @@ namespace DAL
             }
         }
        
+        public bool ExecuteTransaction()
+        {
+            #region What is Transaction?
+            //ACID Properties of Transactions
+            //1.Atomic:All tasks in the transaction should succceed together to commit or fail together to rollback.
+            //2.Consistency:transaction must maintain consistency constraints.
+            //3.Isolated:Every transaction is an independant task.
+            //4.Durability:After succeeding all the task it must be committed.
+            #endregion
+            SqlTransaction sqlTransaction=null;
+            try
+            {
+                SqlCommand sqlCommand1 = new SqlCommand();            
+                sqlCommand1.Connection = sqlConnection;
+              
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+               
+                sqlTransaction = sqlConnection.BeginTransaction();
+                sqlCommand1.Transaction = sqlTransaction;
+                sqlCommand1.CommandType = CommandType.Text;
+
+                sqlCommand1.CommandText = "insert into DeptMaster(DeptName) values('Warehouse')";              
+                sqlCommand1.ExecuteNonQuery();
+
+                sqlCommand1.CommandText = "insert into EmpMaster values(130,'Sunny','01-01-1980','sunny@gmail.com',100)";
+                sqlCommand1.ExecuteNonQuery();
+
+                sqlTransaction.Commit();
+                return true;
+            }catch(SqlException ex)
+            {
+                sqlTransaction.Rollback();
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
     }
 }
